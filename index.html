@@ -3,7 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eugenia Lupiano Contreras — Selected Work</title>
+<title>Eugenia Lupiano Contreras — Portfolio Highlights</title>
+<meta name="description" content="Selected work in AI, space and defence: PRISM, AWS LaunchPad at IAC 2026, the Middle East Space Monitor and the new AzurX website.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://f7g7v6kn5r-lab.github.io/eugenia-lupiano-contreras-portfolio/">
+<meta property="og:title" content="Eugenia Lupiano Contreras — Portfolio Highlights">
+<meta property="og:description" content="Selected work in AI, space and defence: PRISM, AWS LaunchPad at IAC 2026, the Middle East Space Monitor and the new AzurX website.">
+<meta property="og:image" content="https://f7g7v6kn5r-lab.github.io/eugenia-lupiano-contreras-portfolio/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Eugenia Lupiano Contreras — Portfolio Highlights">
+<meta name="twitter:description" content="Selected work in AI, space and defence: PRISM, AWS LaunchPad at IAC 2026, the Middle East Space Monitor and the new AzurX website.">
+<meta name="twitter:image" content="https://f7g7v6kn5r-lab.github.io/eugenia-lupiano-contreras-portfolio/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -181,6 +193,12 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 .bu-r .win video{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;background:#0b0c0f}
 .bu-r figcaption{margin-top:12px;font-size:15px;color:#A3A5A9}
 @media (max-width:760px){.bu{grid-template-columns:1fr}.bu-l{position:sticky;top:56px;z-index:3;background:#0B0D12;padding:10px 0}.bu-l p{font-size:22px}.bu-r{gap:48px}}
+/* news ribbon */
+.rib{position:relative;overflow:hidden;padding:40px 0;-webkit-mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000);mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000)}
+.rib-t{display:flex;gap:22px;align-items:center;transition:transform .9s cubic-bezier(.45,.05,.2,1);will-change:transform}
+.rib-t img{flex:none;width:280px;border-radius:12px;opacity:.45;transform:scale(.92);transition:opacity .9s ease,transform .9s ease,box-shadow .9s ease;box-shadow:0 0 0 1px #ffffff14}
+.rib-t img.c{opacity:1;transform:scale(1.22);box-shadow:0 30px 60px -20px #000,0 0 0 1px #ffffff2a;position:relative;z-index:2}
+@media (max-width:760px){.rib-t img{width:220px}}
 /* reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -246,7 +264,7 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 
     <div class="split reveal">
       <h3>Every story arrives with analysis,</h3>
-      <div class="frame"><img src="img/prism-story.jpg" alt="PRISM story view with image, headline and analysis"></div>
+      <div class="rib" id="rib"><div class="rib-t"><img src="img/news-naval.jpg" alt="PRISM story: France awards Naval Group autonomous combat sub contract"><img src="img/news-hubble.jpg" alt="PRISM story: NASA seeks commercial help to boost or deorbit Hubble"><img src="img/news-artemis.jpg" alt="PRISM story: NASA sets 2027 Artemis III orbital mission"><img src="img/news-poland.jpg" alt="PRISM story: Poland naval market valued at under $13bn"><img src="img/news-naval.jpg" alt="PRISM story: France awards Naval Group autonomous combat sub contract"><img src="img/news-hubble.jpg" alt="PRISM story: NASA seeks commercial help to boost or deorbit Hubble"><img src="img/news-artemis.jpg" alt="PRISM story: NASA sets 2027 Artemis III orbital mission"><img src="img/news-poland.jpg" alt="PRISM story: Poland naval market valued at under $13bn"><img src="img/news-naval.jpg" alt="PRISM story: France awards Naval Group autonomous combat sub contract"><img src="img/news-hubble.jpg" alt="PRISM story: NASA seeks commercial help to boost or deorbit Hubble"><img src="img/news-artemis.jpg" alt="PRISM story: NASA sets 2027 Artemis III orbital mission"><img src="img/news-poland.jpg" alt="PRISM story: Poland naval market valued at under $13bn"></div></div>
     </div>
 
 
@@ -469,6 +487,12 @@ setInterval(function(){sl[k].classList.remove('on');d[k].classList.remove('on');
 (function(){var L=document.querySelectorAll('#bul span[data-k]'),F=document.querySelectorAll('.bu-r figure');if(!F.length)return;
 var io=new IntersectionObserver(function(es){es.forEach(function(e){var k=+e.target.dataset.k,v=e.target.querySelector('video');if(e.isIntersecting){for(var i=0;i<L.length;i++){L[i].classList.toggle('in',i<=k);L[i].classList.toggle('cur',i===k)}try{var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}catch(x){}}else{v.pause()}})},{rootMargin:'-35% 0px -35% 0px'});
 F.forEach(function(f){io.observe(f)});})();
+
+(function(){var r=document.getElementById('rib');if(!r)return;var t=r.querySelector('.rib-t'),im=t.querySelectorAll('img'),N=im.length/3,i=N+1;
+function pos(anim){var w=im[0].offsetWidth,g=22,x=r.clientWidth/2-(i*(w+g)+w/2);t.style.transition=anim?'':'none';t.style.transform='translateX('+x+'px)';im.forEach(function(e,j){e.classList.toggle('c',j===i)});if(!anim){t.offsetHeight;t.style.transition=''}}
+pos(false);addEventListener('resize',function(){pos(false)});
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+setInterval(function(){i++;pos(true);if(i>=2*N){setTimeout(function(){i-=N;im.forEach(function(e){e.style.transition='none'});pos(false);t.offsetHeight;im.forEach(function(e){e.style.transition=''})},950)}},2800);})();
 </script>
 </body>
 </html>
