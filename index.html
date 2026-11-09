@@ -202,6 +202,9 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 .rib-t img{flex:none;width:280px;border-radius:12px;opacity:.45;transform:scale(.92);transition:opacity .9s ease,transform .9s ease,box-shadow .9s ease;box-shadow:0 0 0 1px #ffffff14}
 .rib-t img.c{opacity:1;transform:scale(1.22);box-shadow:0 30px 60px -20px #000,0 0 0 1px #ffffff2a;position:relative;z-index:2}
 @media (max-width:760px){.rib-t img{width:220px}}
+.rib-w{padding:26px 0 50px;align-self:start}
+.rib-w .rib-t img{width:400px;aspect-ratio:1600/849;object-fit:cover}
+@media (max-width:760px){.rib-w .rib-t img{width:280px}}
 /* reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -292,12 +295,7 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 
     <div class="split reveal">
       <h3>from source collection to finished analysis.</h3>
-      <div class="frame"><img src="img/prism-landing.jpg" alt="PRISM landing page at prism-osint.com"></div>
-    </div>
-
-    <div class="grid2 reveal">
-      <div class="frame"><img src="img/prism-archive.jpg" alt="Archived edition with illustrated stories"></div>
-      <div class="frame"><img src="img/prism-access.jpg" alt="PRISM early access page"></div>
+      <div class="rib rib-w"><div class="rib-t"><img src="img/prism-landing.jpg" alt="PRISM landing page at prism-osint.com"><img src="img/prism-archive.jpg" alt="Archived edition with illustrated stories"><img src="img/prism-access.jpg" alt="PRISM early access page"><img src="img/prism-landing.jpg" alt="PRISM landing page at prism-osint.com"><img src="img/prism-archive.jpg" alt="Archived edition with illustrated stories"><img src="img/prism-access.jpg" alt="PRISM early access page"><img src="img/prism-landing.jpg" alt="PRISM landing page at prism-osint.com"><img src="img/prism-archive.jpg" alt="Archived edition with illustrated stories"><img src="img/prism-access.jpg" alt="PRISM early access page"></div></div>
     </div>
     <p class="cap reveal">prism-osint.com · dashboard, archive and early access</p>
   </div>
@@ -491,11 +489,11 @@ setInterval(function(){sl[k].classList.remove('on');d[k].classList.remove('on');
 var io=new IntersectionObserver(function(es){es.forEach(function(e){var k=+e.target.dataset.k,v=e.target.querySelector('video');if(e.isIntersecting){for(var i=0;i<L.length;i++){L[i].classList.toggle('in',i<=k);L[i].classList.toggle('cur',i===k)}try{var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}catch(x){}}else{v.pause()}})},{rootMargin:'-35% 0px -35% 0px'});
 F.forEach(function(f){io.observe(f)});})();
 
-(function(){var r=document.getElementById('rib');if(!r)return;var t=r.querySelector('.rib-t'),im=t.querySelectorAll('img'),N=im.length/3,i=N+1;
+(function(){document.querySelectorAll('.rib').forEach(function(r){var t=r.querySelector('.rib-t'),im=t.querySelectorAll('img'),N=im.length/3,i=N+1;
 function pos(anim){var w=im[0].offsetWidth,g=22,x=r.clientWidth/2-(i*(w+g)+w/2);t.style.transition=anim?'':'none';t.style.transform='translateX('+x+'px)';im.forEach(function(e,j){e.classList.toggle('c',j===i)});if(!anim){t.offsetHeight;t.style.transition=''}}
 pos(false);addEventListener('resize',function(){pos(false)});
 if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-setInterval(function(){i++;pos(true);if(i>=2*N){setTimeout(function(){i-=N;im.forEach(function(e){e.style.transition='none'});pos(false);t.offsetHeight;im.forEach(function(e){e.style.transition=''})},950)}},2800);})();
+setInterval(function(){i++;pos(true);if(i>=2*N){setTimeout(function(){i-=N;im.forEach(function(e){e.style.transition='none'});pos(false);t.offsetHeight;im.forEach(function(e){e.style.transition=''})},950)}},2800);})})();
 </script>
 </body>
 </html>
