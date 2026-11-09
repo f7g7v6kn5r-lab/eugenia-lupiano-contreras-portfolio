@@ -210,6 +210,17 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 .pr.out{transform:translate(10%,-60%) rotate(14deg);opacity:0;z-index:6}
 .pr.nt{transition:none}
 @media (max-width:760px){.pst{height:clamp(240px,62vw,320px);margin-top:10px}.pr{width:72%}}
+/* interviews cover flow */
+.cflow{position:relative}
+.cf-st{position:relative;height:clamp(230px,24vw,330px);perspective:1400px}
+.cfi{position:absolute;top:50%;left:50%;width:50%;margin:0;transition:transform .7s cubic-bezier(.4,.1,.2,1),filter .7s ease,opacity .7s ease;will-change:transform}
+.cfi img{display:block;width:100%;border-radius:12px;box-shadow:0 40px 60px -28px #0009;-webkit-box-reflect:below 6px linear-gradient(#0000 62%,#0002)}
+.cfi.c{transform:translate(-50%,-55%) translateZ(60px);z-index:3}
+.cfi.l{transform:translate(-100%,-55%) rotateY(40deg) scale(.8);filter:brightness(.82);z-index:1}
+.cfi.r{transform:translate(0%,-55%) rotateY(-40deg) scale(.8);filter:brightness(.82);z-index:1}
+.split .cf-cap{text-align:center;margin-top:18px;font-size:clamp(15px,1.3vw,18px);color:inherit;transition:opacity .3s}
+.split .cf-cap span{color:var(--mute)}
+@media (max-width:760px){.cf-st{height:58vw}.cfi{width:66%}.cfi.l{transform:translate(-100%,-55%) rotateY(40deg) scale(.78)}.cfi.r{transform:translate(0%,-55%) rotateY(-40deg) scale(.78)}}
 /* news ribbon */
 .rib{position:relative;overflow:hidden;padding:40px 0;-webkit-mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000);mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000)}
 .rib-t{display:flex;gap:22px;align-items:center;transition:transform .9s cubic-bezier(.45,.05,.2,1);will-change:transform}
@@ -388,11 +399,7 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
       <div>
         <p>The Middle East Space Monitor is AzurX’s editorial platform on space and satellite activity across the Middle East and North Africa: weekly roundups, market analysis and event coverage, including World Space Business Week in Paris, Dubai Airshow and the Middle East Space Conference.</p>
         <div style="margin-top:clamp(24px,3vw,40px)">
-        <div class="grid3 wsbw">
-        <div><img src="img/wsbw-1.jpg" alt="Interview with H.E. Dr. Ali Al Shidhani"><p class="cap">H.E. Dr. Ali Al Shidhani, MTCIT Oman</p></div>
-        <div><img src="img/wsbw-2.jpg" alt="Interview with Martijn Blanken"><p class="cap">Martijn Blanken, Neo Space Group</p></div>
-        <div><img src="img/wsbw-3.jpg" alt="Interview with Waleid Al Mesmari"><p class="cap">Waleid Al Mesmari, EDGE Group</p></div>
-      </div>
+        <div class="cflow" id="cflow"><div class="cf-st"><figure class="cfi l" data-n="H.E. Dr. Ali Al Shidhani" data-o="MTCIT Oman"><img src="img/wsbw-1.jpg" alt="Interview with H.E. Dr. Ali Al Shidhani"></figure><figure class="cfi c" data-n="Martijn Blanken" data-o="Neo Space Group"><img src="img/wsbw-2.jpg" alt="Interview with Martijn Blanken"></figure><figure class="cfi r" data-n="Waleid Al Mesmari" data-o="EDGE Group"><img src="img/wsbw-3.jpg" alt="Interview with Waleid Al Mesmari"></figure></div><p class="cf-cap"><b>Martijn Blanken</b> <span>· Neo Space Group</span></p></div>
         </div>
       </div>
     </div>
@@ -507,6 +514,9 @@ function pos(anim){var w=im[0].offsetWidth,g=22,x=r.clientWidth/2-(i*(w+g)+w/2);
 pos(false);addEventListener('resize',function(){pos(false)});
 if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
 setInterval(function(){i++;pos(true);if(i>=2*N){setTimeout(function(){i-=N;im.forEach(function(e){e.style.transition='none'});pos(false);t.offsetHeight;im.forEach(function(e){e.style.transition=''})},950)}},2800);})})();
+(function(){var c=document.getElementById('cflow');if(!c)return;var F=[].slice.call(c.querySelectorAll('.cfi')),cap=c.querySelector('.cf-cap'),pos=['l','c','r'];
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+setInterval(function(){pos.unshift(pos.pop());F.forEach(function(f,i){f.className='cfi '+pos[i];if(pos[i]==='c'){cap.style.opacity=0;setTimeout(function(){cap.innerHTML='<b>'+f.dataset.n+'</b> <span>· '+f.dataset.o+'</span>';cap.style.opacity=1},300)}})},1500);})();
 </script>
 </body>
 </html>
