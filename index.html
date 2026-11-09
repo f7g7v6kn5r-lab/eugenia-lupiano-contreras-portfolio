@@ -163,13 +163,24 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 .screen .modal{top:40px;height:566px;object-fit:cover;object-position:top}
 /* azurx site */
 .dev{display:inline-block;margin-top:14px;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
-.dev i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#E8A23A;margin-right:8px;vertical-align:1px;animation:blink 1.6s ease-in-out infinite}
+.dev i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#8CC4E8;margin-right:8px;vertical-align:1px;animation:blink 1.6s ease-in-out infinite}
 @keyframes blink{50%{opacity:.25}}
 .win{border-radius:14px;overflow:hidden;background:#1b1d22;box-shadow:0 50px 100px -40px #000,0 0 0 1px #ffffff14}
 .win .wtop{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#24262c}
 .win .wtop b{width:11px;height:11px;border-radius:50%;display:inline-block}
 .win .wtop span{margin-left:16px;flex:1;max-width:420px;background:#17181c;border-radius:7px;padding:5px 12px;font-size:13px;color:#9a9ca3}
 .win video{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;background:#0b0c0f}
+/* azurx build-up */
+.bu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(24px,4vw,64px);margin-top:clamp(40px,5vw,72px)}
+.bu-l{position:sticky;top:110px;align-self:start;padding-top:8px}
+.bu-l p{font-size:clamp(26px,2.6vw,40px);line-height:1.12;letter-spacing:-.025em;font-weight:600;color:#F2F0EC;margin:0}
+.bu-l p span{display:block;opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+.bu-l p span.in{opacity:1;transform:none}
+.bu-l p span.cur{color:#8CC4E8}
+.bu-r{display:flex;flex-direction:column;gap:clamp(60px,9vw,140px);padding-bottom:12vh}
+.bu-r .win video{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;background:#0b0c0f}
+.bu-r figcaption{margin-top:12px;font-size:15px;color:#A3A5A9}
+@media (max-width:760px){.bu{grid-template-columns:1fr}.bu-l{position:sticky;top:56px;z-index:3;background:#0B0D12;padding:10px 0}.bu-l p{font-size:22px}.bu-r{gap:48px}}
 /* reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -410,10 +421,7 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
       <h2 class="giant reveal">AzurX<br>website</h2>
       <div class="meta reveal">Special Projects, AzurX<span>2026</span><div class="dev"><i></i>In development</div></div>
     </div>
-    <div class="win reveal">
-      <div class="wtop"><b style="background:#FF5F57"></b><b style="background:#FEBC2E"></b><b style="background:#28C840"></b><span>azurx.com · preview</span></div>
-      <video src="img/azurx-site.mp4" poster="img/azurx-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll through the new AzurX homepage, in development"></video>
-    </div>
+    <div class="bu"><div class="bu-l"><p id="bul"><span class="in">For the new AzurX homepage, I designed</span><span data-k="0">the hero,</span><span data-k="1">the mission,</span><span data-k="2">the focus on space,</span><span data-k="3">the vision,</span><span data-k="4">and the presence map.</span></p></div><div class="bu-r"><figure data-k="0" style="margin:0"><div class="win"><div class="wtop"><b style="background:#FF5F57"></b><b style="background:#FEBC2E"></b><b style="background:#28C840"></b><span>azurx.com · preview</span></div><video src="img/ch-hero.mp4" poster="img/ch-hero.jpg" muted loop playsinline preload="metadata" aria-label="AzurX homepage: Hero · ocean horizon and globe in 3D"></video></div><figcaption>Hero · ocean horizon and globe in 3D</figcaption></figure><figure data-k="1" style="margin:0"><div class="win"><div class="wtop"><b style="background:#FF5F57"></b><b style="background:#FEBC2E"></b><b style="background:#28C840"></b><span>azurx.com · preview</span></div><video src="img/ch-mission.mp4" poster="img/ch-mission.jpg" muted loop playsinline preload="metadata" aria-label="AzurX homepage: Our mission · advancing technology, creating strategic value"></video></div><figcaption>Our mission · advancing technology, creating strategic value</figcaption></figure><figure data-k="2" style="margin:0"><div class="win"><div class="wtop"><b style="background:#FF5F57"></b><b style="background:#FEBC2E"></b><b style="background:#28C840"></b><span>azurx.com · preview</span></div><video src="img/ch-focus.mp4" poster="img/ch-focus.jpg" muted loop playsinline preload="metadata" aria-label="AzurX homepage: Our focus · space and advanced technologies"></video></div><figcaption>Our focus · space and advanced technologies</figcaption></figure><figure data-k="3" style="margin:0"><div class="win"><div class="wtop"><b style="background:#FF5F57"></b><b style="background:#FEBC2E"></b><b style="background:#28C840"></b><span>azurx.com · preview</span></div><video src="img/ch-moon.mp4" poster="img/ch-moon.jpg" muted loop playsinline preload="metadata" aria-label="AzurX homepage: Vision · building what comes next"></video></div><figcaption>Vision · building what comes next</figcaption></figure><figure data-k="4" style="margin:0"><div class="win"><div class="wtop"><b style="background:#FF5F57"></b><b style="background:#FEBC2E"></b><b style="background:#28C840"></b><span>azurx.com · preview</span></div><video src="img/ch-presence.mp4" poster="img/ch-presence.jpg" muted loop playsinline preload="metadata" aria-label="AzurX homepage: Our presence · global reach, UAE headquartered"></video></div><figcaption>Our presence · global reach, UAE headquartered</figcaption></figure></div></div>
     <div class="split reveal">
       <h3>The new AzurX homepage.</h3>
       <p>Design and build of the new azurx.com homepage, currently in development and not yet launched.</p>
@@ -457,6 +465,10 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 (function(){var sh=document.getElementById('show');if(!sh)return;var sl=sh.querySelectorAll('.slide'),d=sh.querySelectorAll('.sdots i'),k=0;
 if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
 setInterval(function(){sl[k].classList.remove('on');d[k].classList.remove('on');k=(k+1)%sl.length;sl[k].classList.add('on');d[k].classList.add('on');},2800);})();
+
+(function(){var L=document.querySelectorAll('#bul span[data-k]'),F=document.querySelectorAll('.bu-r figure');if(!F.length)return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var k=+e.target.dataset.k,v=e.target.querySelector('video');if(e.isIntersecting){for(var i=0;i<L.length;i++){L[i].classList.toggle('in',i<=k);L[i].classList.toggle('cur',i===k)}try{var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}catch(x){}}else{v.pause()}})},{rootMargin:'-35% 0px -35% 0px'});
+F.forEach(function(f){io.observe(f)});})();
 </script>
 </body>
 </html>
