@@ -161,6 +161,15 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 .hi.dark{background:#000}
 .screen .strip{top:40px}
 .screen .modal{top:40px;height:566px;object-fit:cover;object-position:top}
+/* azurx site */
+.dev{display:inline-block;margin-top:14px;padding:6px 14px;border:1px solid var(--rule);border-radius:999px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+.dev i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#E8A23A;margin-right:8px;vertical-align:1px;animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.win{border-radius:14px;overflow:hidden;background:#1b1d22;box-shadow:0 50px 100px -40px #000,0 0 0 1px #ffffff14}
+.win .wtop{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#24262c}
+.win .wtop b{width:11px;height:11px;border-radius:50%;display:inline-block}
+.win .wtop span{margin-left:16px;flex:1;max-width:420px;background:#17181c;border-radius:7px;padding:5px 12px;font-size:13px;color:#9a9ca3}
+.win video{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;background:#0b0c0f}
 /* reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
@@ -181,7 +190,7 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 
 <nav>
   <a href="#top">Eugenia Lupiano Contreras</a>
-  <div class="links"><a href="#prism">PRISM</a><a href="#launchpad">LaunchPad</a><a href="#monitor">Space Monitor</a></div>
+  <div class="links"><a href="#prism">PRISM</a><a href="#launchpad">LaunchPad</a><a href="#monitor">Space Monitor</a><a href="#azurx">AzurX</a></div>
 </nav>
 
 <!-- HERO -->
@@ -393,6 +402,24 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
   </div>
 </section>
 
+<!-- AZURX WEBSITE -->
+<section id="azurx" style="--bg:#0B0D12;--fg:#F2F0EC;--mute:#A3A5A9;--rule:#F2F0EC40">
+  <div class="wrap">
+    <div class="bar"></div>
+    <div class="head">
+      <h2 class="giant reveal">AzurX<br>website</h2>
+      <div class="meta reveal">Special Projects, AzurX<span>2026</span><div class="dev"><i></i>In development</div></div>
+    </div>
+    <div class="win reveal">
+      <div class="wtop"><b style="background:#FF5F57"></b><b style="background:#FEBC2E"></b><b style="background:#28C840"></b><span>azurx.com · preview</span></div>
+      <video src="img/azurx-site.mp4" poster="img/azurx-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll through the new AzurX homepage, in development"></video>
+    </div>
+    <div class="split reveal">
+      <h3>The new AzurX homepage.</h3>
+      <p>Design and build of the new azurx.com homepage, currently in development and not yet launched.</p>
+    </div>
+  </div>
+</section>
 <footer>© 2026 Eugenia Lupiano Contreras</footer>
 
 <script>
