@@ -221,6 +221,22 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 .split .cf-cap{text-align:center;margin-top:18px;font-size:clamp(15px,1.3vw,18px);color:inherit;transition:opacity .3s}
 .split .cf-cap span{color:var(--mute)}
 @media (max-width:760px){.cf-st{height:58vw}.cfi{width:66%}.cfi.l{transform:translate(-100%,-55%) rotateY(40deg) scale(.78)}.cfi.r{transform:translate(0%,-55%) rotateY(-40deg) scale(.78)}}
+/* LaunchPad badge */
+.lp-head{grid-template-columns:1.5fr 1fr;align-items:stretch}
+.lp-meta{margin-top:clamp(24px,3vw,40px)}
+.lan{position:relative;min-height:clamp(420px,36vw,520px);margin-top:calc(-1*clamp(36px,5vw,72px) + 26px)}
+.lan .rig{position:absolute;left:50%;top:0;width:0;will-change:transform}
+.lan .strap{position:absolute;left:-19px;top:0;width:38px;height:clamp(130px,11vw,170px);background:linear-gradient(90deg,#8CC4E8 0 6px,#0B0C0F 6px 32px,#8CC4E8 32px);overflow:hidden}
+.lan .strap span{position:absolute;left:50%;top:10px;transform:translateX(-50%);writing-mode:vertical-rl;white-space:nowrap;font:700 10px/1 Helvetica,Arial,sans-serif;letter-spacing:.24em;color:#fff}
+.lan .clip{position:absolute;left:-13px;top:calc(clamp(130px,11vw,170px) - 6px);width:26px;height:22px;border-radius:5px;background:linear-gradient(#d5d9de,#8d939b)}
+.lan .badge{position:absolute;left:-140px;top:calc(clamp(130px,11vw,170px) + 12px);width:280px;background:#F4F2EE;color:#161616;border-radius:16px;overflow:hidden;box-shadow:0 40px 60px -22px #000c;transform:rotate(-3deg);transform-origin:50% 0}
+.lan .hole{width:46px;height:9px;border-radius:9px;background:#232F3E;margin:12px auto 0}
+.lan .tp{padding:14px 20px 0;font:700 11px Helvetica,Arial,sans-serif;letter-spacing:.14em;color:#232F3E}
+.lan .bt{margin:6px 20px 0;font-size:34px;line-height:.9;letter-spacing:-.04em;font-weight:700}
+.lan .badge img{display:block;width:100%;height:124px;object-fit:cover;object-position:62% 30%;margin-top:14px}
+.lan .role{background:#0B0C0F;color:#fff;font:800 14px Helvetica,Arial,sans-serif;letter-spacing:.2em;text-align:center;padding:11px;box-shadow:inset 0 -5px 0 #8CC4E8}
+.lan .ft{display:flex;justify-content:space-between;padding:12px 20px;font-size:12px;color:#555}
+@media (max-width:760px){.lan{min-height:460px;margin-top:10px}.lan .badge{width:240px;left:-120px}.lan .bt{font-size:30px}.lan .badge img{height:104px}}
 /* news ribbon */
 .rib{position:relative;overflow:hidden;padding:40px 0;-webkit-mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000);mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000)}
 .rib-t{display:flex;gap:22px;align-items:center;transition:transform .9s cubic-bezier(.45,.05,.2,1);will-change:transform}
@@ -330,11 +346,13 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 <section id="launchpad" style="--bg:#232F3E;--fg:#F4F2EE;--mute:#B4BCC7;--rule:#F4F2EE40">
   <div class="wrap">
     <div class="bar"></div>
-    <div class="head">
-      <h2 class="giant reveal">AWS<br>LaunchPad</h2>
-      <p class="meta reveal">AzurX — Special Projects<span>6 October 2026 · IAC, Türkiye</span></p>
+    <div class="head lp-head">
+      <div><h2 class="giant reveal">AWS<br>LaunchPad</h2><p class="meta reveal lp-meta">AzurX — Special Projects<span>6 October 2026 · IAC, Türkiye</span></p></div>
+      <div class="lan" id="lan" aria-hidden="false"><div class="rig">
+        <div class="strap"><span>AWS · AZURX · AWS · AZURX · AWS · AZURX</span></div><div class="clip"></div>
+        <div class="badge"><div class="hole"></div><div class="tp">IAC 2026 · TÜRKIYE</div><div class="bt">AWS<br>LaunchPad</div><img src="img/aws-network.jpg" alt="Speakers in conversation at AWS LaunchPad"><div class="role">ORGANISER</div><div class="ft"><span>AzurX — Special Projects</span><span>06.10.26</span></div></div>
+      </div></div>
     </div>
-    <div class="frame reveal"><img src="img/aws-network.jpg" alt="Speakers in conversation at AWS LaunchPad"></div>
 
     <div class="stats reveal">
       <div><b>60+</b><span>Attendees at peak</span></div>
@@ -517,6 +535,11 @@ setInterval(function(){i++;pos(true);if(i>=2*N){setTimeout(function(){i-=N;im.fo
 (function(){var c=document.getElementById('cflow');if(!c)return;var F=[].slice.call(c.querySelectorAll('.cfi')),cap=c.querySelector('.cf-cap'),pos=['l','c','r'];
 if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
 setInterval(function(){pos.unshift(pos.pop());F.forEach(function(f,i){f.className='cfi '+pos[i];if(pos[i]==='c'){cap.style.opacity=0;setTimeout(function(){cap.innerHTML='<b>'+f.dataset.n+'</b> <span>· '+f.dataset.o+'</span>';cap.style.opacity=1},300)}})},1500);})();
+(function(){var l=document.getElementById('lan');if(!l)return;var r=l.querySelector('.rig');
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+function e(x){var c=1.70158,d=c+1;return 1+d*Math.pow(x-1,3)+c*Math.pow(x-1,2)}
+var tk=0;function u(){tk=0;var b=l.getBoundingClientRect(),h=innerHeight,q=Math.min(1,Math.max(0,(h-b.top)/(h*.55)));r.style.transform='translateY('+((1-e(q))*-640)+'px) rotate('+((1-q)*8)+'deg)';}
+u();addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(u)}},{passive:true});addEventListener('resize',u);})();
 </script>
 </body>
 </html>
