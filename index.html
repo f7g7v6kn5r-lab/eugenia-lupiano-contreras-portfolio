@@ -196,6 +196,20 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 .bu-r .win video{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;background:#0b0c0f}
 .bu-r figcaption{margin-top:12px;font-size:15px;color:#A3A5A9}
 @media (max-width:760px){.bu{grid-template-columns:1fr}.bu-l{position:sticky;top:56px;z-index:3;background:#0B0D12;padding:10px 0}.bu-l p{font-size:22px}.bu-r{gap:48px}}
+/* photo prints stack */
+.ps{grid-template-columns:1fr 1.25fr;align-items:center}
+.ps h3{margin-bottom:18px}.ps p{font-size:clamp(17px,1.4vw,21px)}
+.pst{position:relative;height:clamp(300px,30vw,440px)}
+.pr{position:absolute;left:50%;top:50%;width:min(80%,460px);margin:0;background:#F4F1EA;padding:10px 10px 40px;border-radius:3px;box-shadow:0 30px 50px -20px #000b;transition:transform .45s cubic-bezier(.3,.7,.2,1),opacity .45s ease}
+.pr img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.pr figcaption{position:absolute;left:12px;right:12px;bottom:12px;color:#333;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pr.s0{transform:translate(-50%,-50%) rotate(1.5deg);z-index:5}
+.pr.s1{transform:translate(-62%,-47%) rotate(-6deg);z-index:4}
+.pr.s2{transform:translate(-38%,-53%) rotate(7deg);z-index:3}
+.pr.s3,.pr.s4{transform:translate(-50%,-50%) rotate(-2deg);z-index:2;opacity:0}
+.pr.out{transform:translate(10%,-60%) rotate(14deg);opacity:0;z-index:6}
+.pr.nt{transition:none}
+@media (max-width:760px){.pst{height:clamp(240px,62vw,320px);margin-top:10px}.pr{width:72%}}
 /* news ribbon */
 .rib{position:relative;overflow:hidden;padding:40px 0;-webkit-mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000);mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000)}
 .rib-t{display:flex;gap:22px;align-items:center;transition:transform .9s cubic-bezier(.45,.05,.2,1);will-change:transform}
@@ -341,17 +355,15 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
       </div>
     </div>
 
-    <div class="split reveal">
-      <h3>and documented the day.</h3>
-      <p>Event photography and the official photo catalogue, shared with speakers, partners and participants.</p>
-    </div>
-    <div class="show reveal" id="show">
-        <figure class="slide on"><img src="img/aws-room.jpg" alt="The room at peak attendance"><figcaption>The room at peak attendance</figcaption></figure>
-        <figure class="slide"><img src="img/aws-fireside.jpg" alt="Fireside chat · Salem El Nimri, AWS, with Adnan AlRais, MBRSC"><figcaption>Fireside chat · Salem El Nimri, AWS, with Adnan AlRais, MBRSC</figcaption></figure>
-        <figure class="slide"><img src="img/aws-panel.jpg" alt="Panel 1 · From buyer to market-maker"><figcaption>Panel 1 · From buyer to market-maker</figcaption></figure>
-        <figure class="slide"><img src="img/aws-panel2.jpg" alt="Panel 2 · AI applications in space"><figcaption>Panel 2 · AI applications in space</figcaption></figure>
-        <figure class="slide"><img src="img/aws-speakers.jpg" alt="Speakers and participants"><figcaption>Speakers and participants</figcaption></figure>
-      <div class="sdots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    <div class="split ps reveal">
+      <div><h3>and documented the day.</h3><p>Event photography and the official photo catalogue, shared with speakers, partners and participants.</p></div>
+      <div class="pst" id="pst">
+        <figure class="pr s0"><img src="img/aws-room.jpg" alt="The room at peak attendance"><figcaption>The room at peak attendance</figcaption></figure>
+        <figure class="pr s1"><img src="img/aws-fireside.jpg" alt="Fireside chat · Salem El Nimri, AWS, with Adnan AlRais, MBRSC"><figcaption>Fireside chat · Salem El Nimri, AWS, with Adnan AlRais, MBRSC</figcaption></figure>
+        <figure class="pr s2"><img src="img/aws-panel.jpg" alt="Panel 1 · From buyer to market-maker"><figcaption>Panel 1 · From buyer to market-maker</figcaption></figure>
+        <figure class="pr s3"><img src="img/aws-panel2.jpg" alt="Panel 2 · AI applications in space"><figcaption>Panel 2 · AI applications in space</figcaption></figure>
+        <figure class="pr s4"><img src="img/aws-speakers.jpg" alt="Speakers and participants"><figcaption>Speakers and participants</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
@@ -481,9 +493,10 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
   } else { running=true; setTimeout(loop,900); }
 })();
 
-(function(){var sh=document.getElementById('show');if(!sh)return;var sl=sh.querySelectorAll('.slide'),d=sh.querySelectorAll('.sdots i'),k=0;
+(function(){var st=document.getElementById('pst');if(!st)return;var P=[].slice.call(st.querySelectorAll('.pr'));
 if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-setInterval(function(){sl[k].classList.remove('on');d[k].classList.remove('on');k=(k+1)%sl.length;sl[k].classList.add('on');d[k].classList.add('on');},2800);})();
+setInterval(function(){var f=P.shift();f.className='pr out';P.forEach(function(e,i){e.className='pr s'+i});P.push(f);
+setTimeout(function(){f.className='pr nt s'+(P.length-1);f.offsetHeight;f.classList.remove('nt')},460)},1000);})();
 
 (function(){var L=document.querySelectorAll('#bul span[data-k]'),F=document.querySelectorAll('.bu-r figure');if(!F.length)return;
 var io=new IntersectionObserver(function(es){es.forEach(function(e){var k=+e.target.dataset.k,v=e.target.querySelector('video');if(e.isIntersecting){for(var i=0;i<L.length;i++){L[i].classList.toggle('in',i<=k);L[i].classList.toggle('cur',i===k)}try{var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}catch(x){}}else{v.pause()}})},{rootMargin:'-35% 0px -35% 0px'});
