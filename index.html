@@ -240,6 +240,20 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
 @keyframes glare{0%,40%{background-position:120% 0}80%,100%{background-position:-20% 0}}
 @media (prefers-reduced-motion:reduce){.lan .glare{animation:none;opacity:0}}
 @media (max-width:760px){.lan{min-height:460px;margin-top:10px}.lan .badge{width:240px;left:-120px}.lan .bt{font-size:30px}.lan .badge img{height:104px}}
+/* Space Monitor issue stack */
+.iss{margin:clamp(30px,4vw,60px) 0}
+.iss-st{position:relative;height:clamp(300px,30vw,420px);max-width:900px;margin:0 auto}
+.isc{position:absolute;top:50%;left:50%;width:min(44%,360px);margin:0;background:#fff;border-radius:6px;padding:10px 10px 16px;box-shadow:0 30px 50px -22px #0007;transition:transform .5s cubic-bezier(.3,.7,.2,1)}
+.isc img{display:block;width:100%;border-radius:3px}
+.isc figcaption{margin-top:12px;font-size:clamp(13px,1.2vw,16px);font-weight:600;color:#161616;line-height:1.25}
+.isc figcaption b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a8378;margin-bottom:4px}
+.isc.i1{transform:translate(-112%,-46%) rotate(-7deg)}
+.isc.i2{transform:translate(12%,-48%) rotate(6deg)}
+.isc.i0{transform:translate(-50%,-54%) rotate(-1deg);z-index:3}
+.iss:hover .isc.i1{transform:translate(-122%,-46%) rotate(-9deg)}
+.iss:hover .isc.i2{transform:translate(22%,-48%) rotate(8deg)}
+.iss-cap{text-align:center;color:var(--mute);font-size:15px;margin-top:10px}
+@media (max-width:760px){.iss-st{height:62vw}.isc{width:50%;padding:6px 6px 10px}.isc figcaption{font-size:11px}.isc figcaption b{font-size:8px}.isc.i1{transform:translate(-92%,-46%) rotate(-7deg)}.isc.i2{transform:translate(-8%,-48%) rotate(6deg)}}
 /* news ribbon */
 .rib{position:relative;overflow:hidden;padding:40px 0;-webkit-mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000);mask-image:linear-gradient(90deg,#0000,#000 14%,#000 86%,#0000)}
 .rib-t{display:flex;gap:22px;align-items:center;transition:transform .9s cubic-bezier(.45,.05,.2,1);will-change:transform}
@@ -408,11 +422,13 @@ footer{background:#0E0F11;color:#7C7B78;font-size:14px;padding:24px var(--pad)}
       <h2 class="giant reveal">Space<br>Monitor</h2>
       <p class="meta reveal">Special Projects, AzurX<span>2025–Now</span></p>
     </div>
-    <div class="browser reveal">
-      <div class="top"><i></i><i></i><i></i><em>middleeastspacemonitor.substack.com</em></div>
-      <div class="body">
-        <img src="img/gsm-posts.jpg" alt="Space Monitor posts, including Dubai Airshow 2025 coverage">
+    <div class="iss reveal">
+      <div class="iss-st">
+        <figure class="isc i1"><img src="img/sm-issue-2.jpg" alt="Middle East Space Roundup, 10 to 16 November 2025, Special Edition"><figcaption><b>Special edition</b>10 to 16 November 2025</figcaption></figure>
+        <figure class="isc i2"><img src="img/sm-issue-1.jpg" alt="Middle East Space Roundup, 17 to 23 November 2025"><figcaption><b>Weekly roundup</b>17 to 23 November 2025</figcaption></figure>
+        <figure class="isc i0"><img src="img/sm-issue-0.jpg" alt="Middle East Space Roundup, 24 November to 2 December 2025"><figcaption><b>Weekly roundup</b>24 November to 2 December 2025</figcaption></figure>
       </div>
+      <p class="iss-cap">middleeastspacemonitor.substack.com</p>
     </div>
 
     <div class="split reveal">
